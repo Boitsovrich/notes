@@ -13,6 +13,9 @@
   <div id="app">
     <h1>{{title}}</h1>
 
+    <div class ="message" v-if="message">
+      <p>{{ message}} </p>
+    </div>
     <!-- new note -->
     <div class="new-note">
       <input v-model="note.title" type="text">
@@ -37,23 +40,24 @@
       el: "#app",
       data: {
         title: "Notes App",
+        message: null,
         note: {
           title: '',
           descr: ''
         },
         notes: [{
-            title: "First Note",
-            descr: "Description for first note",
+            title: "Первая заметка",
+            descr: "Описание первой заметки",
             date: new Date(Date.now()).toLocaleString()
           },
           {
-            title: "Second Note",
-            descr: "Description for second note",
+            title: "Вторая заметка",
+            descr: "Описание второй заметки",
             date: new Date(Date.now()).toLocaleString()
           },
           {
-            title: "Third Note",
-            descr: "Description for third note",
+            title: "Тертья заметка",
+            descr: "Описание третьей заметки",
             date: new Date(Date.now()).toLocaleString()
           },
         ],
@@ -61,15 +65,21 @@
       methods: {
         addNote() {
           // console.log(this.note)
-          let {
-            title,
-            descr
-          } = this.note
+          let {title, descr} = this.note
+
+          if (title==='')  {
+            this.message ='Строка не может быть пустой!'
+            return false
+          }
+
           this.notes.push({
             title,
             descr,
             date: new Date(Date.now()).toLocaleString()
           })
+          this.note.title = '',
+          this.note.descr = '',
+          this.message = null 
         }
       }
     });
