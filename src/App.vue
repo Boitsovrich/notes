@@ -5,15 +5,15 @@
         <div class="container">
           <h1>{{ title }}</h1>
 
-          <div class="message" v-if="message">
-            <p>{{ message }}</p>
-          </div>
+          <message v-if="message" :message="message"> </message>
+
           <!-- new note -->
           <div class="new-note">
             <input v-model="note.title" type="text" />
             <textarea v-model="note.descr"></textarea>
             <button @click="addNote">New note</button>
           </div>
+
           <!-- note list-->
           <div class="notes">
             <div class="note" v-for="(note, index) in notes" :key="index">
@@ -33,7 +33,11 @@
 </template>
 
 <script>
+import message from "@/components/Message.vue";
 export default {
+  components: {
+    message,
+  },
   data() {
     return {
       title: "Notes App",
@@ -67,7 +71,7 @@ export default {
       let { title, descr } = this.note;
 
       if (title === "") {
-        this.message = "Строка не может быть пустой!";
+        this.message = "Title can't be blank!";
         return false;
       }
 
