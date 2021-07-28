@@ -1,17 +1,36 @@
-.link {
+.btn {
+  display: inline-block;
+  padding: .8em 2.6em;
+  margin: 20px 0;
+  line-height: 1;
+  text-transform: uppercase;
   cursor: pointer;
-  border-bottom: 1px solid #9aa4d6;
-  color: #4343aa;
-  &.linkWhite {
-    border-bottom: 1px solid #ffffff;
+  border-radius: 30px;
+
+  // default btn
+  &.btnDefaul {
     color: #ffffff;
+    border: 1px solid #333333;
+    background-color: #333333;
   }
-  &.linkFalse {
-    border-bottom: 1px solid #b53f3f;
-    color: #b53f3f;
+
+  // primiry btn
+  &.btnPrimary {
+    color: #ffffff;
+    border: 1px solid #494ce8;
+    background-color: #494ce8;
   }
-  &.linkTrue {
-    border-bottom: 1px solid #7bd782;
-    color: #7bd782;
+
+  // danger btn
+  &.btnDanger {
+    color: #ffffff;
+    border: 1px solid hsl(0, 48%, 48%);
+    background-color: #b53f3f;
+  }
+
+  &.btnWhite {
+    color: #333333;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
   }
 }

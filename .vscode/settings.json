@@ -5,5 +5,8 @@
     "lightex",
     "vuex",
     "строка"
+  ],
+  "cSpell.ignoreWords": [
+    "primiry"
   ]
 }
